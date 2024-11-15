@@ -1,0 +1,127 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ed/Malyovitsa-winter-ifb.JPG'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the image in place when scrolling */
+    color: white;
+  }
+  
+  /* Overlay Section */
+  .overlay {
+    text-align: center;
+    padding: 200px 20px;
+    color: white;
+  }
+  
+  .overlay h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .overlay p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .overlay .home-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .overlay .home-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* About Section */
+  .about {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #333;
+  }
+  
+  .about h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .about p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  /* Team Section */
+  .team {
+    padding: 60px 20px;
+    background-color: #e9e8e8;
+    text-align: center;
+  }
+  
+  .team h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: rgb(30, 29, 29);
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    text-align: center;
+    width: 200px;
+    color: black;
+  }
+  
+  .team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .team-member h3 {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .team-member p {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  /* Contact Section */
+  .contact {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+    color: rgb(32, 28, 28);
+  }
+  
+  .contact h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .contact p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 5px;
+  }

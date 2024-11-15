@@ -1,0 +1,46 @@
+<main class="main-content">
+    <section class="edit-section">
+      <h2>Edit Car Details</h2>
+
+      <!-- Edit Form -->
+      <form action="/submit-edit" method="POST" class="edit-form">
+        <div class="form-group">
+          <label for="car-make">Make:</label>
+          <input type="text" id="car-make" name="car-make" placeholder="Current Make" required>
+        </div>
+
+        <div class="form-group">
+          <label for="car-model">Model:</label>
+          <input type="text" id="car-model" name="car-model" placeholder="Current Model" required>
+        </div>
+
+        <div class="form-group">
+          <label for="year">Year:</label>
+          <input type="number" id="year" name="year" placeholder="2024" required>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" placeholder="Current Price" required>
+        </div>
+
+        <div class="form-group">
+          <label for="mileage">Mileage:</label>
+          <input type="text" id="mileage" name="mileage" placeholder="Current Mileage" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" placeholder="description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="image-url">Image URL:</label>
+          <input type="url" id="image-url" name="image-url" placeholder="Current Image URL">
+        </div>
+
+        <!-- Edit Button -->
+        <button type="submit" class="btn-edit">Edit</button>
+      </form>
+    </section>
+  </main>
