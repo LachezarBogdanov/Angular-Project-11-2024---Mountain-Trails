@@ -1,82 +1,139 @@
-/* Catalog Section */
-.catalog-content {
-    text-align: center;
-    padding: 50px 20px;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 80vh;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ed/Malyovitsa-winter-ifb.JPG'); /* Replace with your hero image path */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* Cards Section */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 20px; /* Spacing between cards */
+  padding: 40px 100px; /* Increased padding on left and right for more space */
+  justify-items: center; /* Centering the cards horizontally */
+  margin-top: 20px;
+  max-width: 1200px; /* Maximum width for the container */
+  margin-left: auto;
+  margin-right: auto; /* Center the entire cards container */
+}
+
+.card {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 470px; /* Adjusted card width */
+  height: 500px; /* Adjusted card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.price-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #acacab;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.card-content {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
+}
+
+.card-content h3 {
+  font-size: 1.5rem; /* Card title size */
+  margin-bottom: 10px;
+  color: #333;
+  border-top: 1px solid rgb(70, 68, 68);
+  border-bottom: 1px solid rgb(87, 85, 85);
+}
+
+.card-content p {
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr; /* One card per row for smaller screens */
+    padding: 40px 20px; /* Reduced padding on small screens */
   }
-  
-  .catalog-content h1 {
-    font-size: 3rem;
-    margin-bottom: 40px;
-  }
-  
-  /* Catalog Cards Container */
-  .catalog-cards {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0 20px;
-  }
-  
-  /* Card Styles */
   .card {
-    width: 300px;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark background for cards */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    margin-bottom: 30px;
-    transition: all 0.3s ease; /* Smooth transition for expanding */
-    display: flex;
-    flex-direction: column;
-    min-height: 350px; /* Ensure base height for card */
-    flex-grow: 0;
+    width: 90%; /* Cards take up most of the width on small screens */
+    height: auto;
   }
-  
-  /* When card is expanded, it will grow based on content */
-  .card.expanded {
-    height: auto; /* Allow the card to expand */
-  }
-  
-  /* Card Image */
-  .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  /* Card Body */
-  .card-body {
-    padding: 20px;
-    flex-grow: 1; /* Ensure the body area grows if content overflows */
-  }
-  
-  /* Title and Text in Card */
-  .card-body h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .card-body p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-  }
-  
-  /* Details Button */
-  .btn-details {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-details:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  
+}

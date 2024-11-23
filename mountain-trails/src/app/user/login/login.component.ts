@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -10,4 +11,8 @@ import { RouterLink } from '@angular/router';
 })
 export class LoginComponent {
 
+  constructor() {}
+  authLogin(username: string, email: string, password: string) {
+    
+  }
 }

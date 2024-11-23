@@ -1,0 +1,59 @@
+<main>
+    <div class="form-container">
+      <h1>Create a New Mountain Trail</h1>
+      <form class="create-form" #createForm="ngForm" (ngSubmit)="createSubmitHandler()">
+        <!-- Image -->
+        <div class="form-group">
+          <label for="img">Image URL:</label>
+          <input type="url" id="img" name="img" placeholder="Enter image URL" ngModel #imageInput="ngModel" required>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter trail name" ngModel #nameInput="ngModel" required>
+        </div>
+
+        <!-- Difficulty -->
+        <div class="form-group">
+          <label for="difficulty">Difficulty:</label>
+          <select id="difficulty" name="difficulty" ngModel #difficultyInput="ngModel" required>
+            <option value="easy">Easy</option>
+            <option value="moderate">Moderate</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" placeholder="Enter trail description" rows="5" ngModel #descriptionInput="ngModel" required></textarea>
+        </div>
+
+        <!-- Type -->
+        <div class="form-group">
+          <label for="type">Trail Type:</label>
+          <select id="type" name="type" ngModel #trailTypeInput="ngModel" required>
+            <option value="hiking">Hiking</option>
+            <option value="cycling">Cycling</option>
+            <option value="skiing">Skiing</option>
+          </select>
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" placeholder="Enter price (in USD)" ngModel #priceInput="ngModel" required>
+        </div>
+
+        <!-- Mileage -->
+        <div class="form-group">
+          <label for="mileage">Mileage (km):</label>
+          <input type="number" id="mileage" name="mileage" placeholder="Enter mileage" ngModel #mileageInput="ngModel" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Create Trail</button>
+      </form>
+    </div>
+  </main>
