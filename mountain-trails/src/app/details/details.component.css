@@ -1,11 +1,9 @@
 /* General Reset */
-body, h1, h2, h3, h4, p, div, section {
+
+main {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-main {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #333;
