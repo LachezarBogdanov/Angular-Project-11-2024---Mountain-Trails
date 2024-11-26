@@ -11,6 +11,7 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
   register(body: object) {
+      console.log(body);
       
     this.http.post(`${this.apiUrl}/register`, body).subscribe((data) => {
       console.log(data);

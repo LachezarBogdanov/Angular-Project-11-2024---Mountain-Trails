@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Trail } from '../../types';
 import { CatalogService } from './catalog.service';
 
 @Component({
@@ -10,13 +11,18 @@ import { CatalogService } from './catalog.service';
 })
 export class CatalogComponent implements OnInit {
 
+  trails: Trail[] = [];
+  isLoading = false;
+
   constructor(private catalogService: CatalogService){}
 
-  ngOnInit(): void {
-    this.getTrails();
-  }
-
-  getTrails() {
-    const allTrails = this.catalogService.getTrails();
+  ngOnInit(){
+    this.catalogService.getTrails().subscribe((data: Trail[]) => {
+      console.log(data);
+      
+      this.trails = data;
+    });
+    
+    this.isLoading = true;
   }
 }

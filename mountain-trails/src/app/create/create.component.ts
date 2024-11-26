@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CreateService } from './create.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class CreateComponent {
 
   trail = {};
 
-  constructor(private createService: CreateService){}
+  constructor(private route: Router, private createService: CreateService){}
 
   createSubmitHandler() {
 
@@ -24,6 +25,13 @@ export class CreateComponent {
 
     this.trail = this.form?.value;
     
-    this.createService.create(this.trail);
+    try{
+      this.createService.create(this.trail);
+      
+      this.route.navigate(['/catalog']);
+    } catch(err) {
+      console.log(err);
+      
+    }
   }
 }

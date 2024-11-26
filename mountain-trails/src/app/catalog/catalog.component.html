@@ -9,66 +9,35 @@
 
   <!-- Cards Section -->
   <section class="cards-container">
-    <!-- Card 1 -->
-    <div class="card">
-      <div class="price-badge">$820</div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Malyovitsa-winter-ifb.JPG" alt="Everest Base Camp">
-      <div class="card-content">
-          <div class="meta">
-            <div>12 Days</div>
-            <div>10 Max Group Size</div>
-            <div>High Difficulty</div>
-          </div>
-        <h3>Trekking Expedition</h3>
-        <p>Everest Base Camp</p>
-        <p>Ama Dablam, Nepal</p>
-      </div>
-    </div>
+    @if(isLoading){
+    @if(trails && trails.length > 0) {
 
-    <div class="card">
-      <div class="price-badge">$820</div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Malyovitsa-winter-ifb.JPG" alt="Everest Base Camp">
-      <div class="card-content">
-          <div class="meta">
-            <div>12 Days</div>
-            <div>10 Max Group Size</div>
-            <div>High Difficulty</div>
+      @for (trail of trails; track $index) {
+        <div class="card">
+          <div class="price-badge">${{trail.price}}</div>
+          <img src="{{trail.img}}" alt="{{trail.name}}">
+          <div class="card-content">
+            <div class="meta">
+              <div>12 Days</div>
+              <div>10 Max Group Size</div>
+              <div>{{trail.difficulty}} Difficulty</div>
+            </div>
+            <h3>{{trail.type}} Expedition</h3>
+            <p>{{trail.name}}</p>
+            <p>Ama Dablam, Nepal</p>
           </div>
-        <h3>Trekking Expedition</h3>
-        <p>Everest Base Camp</p>
-        <p>Ama Dablam, Nepal</p>
+        </div>
+        
+      }
+    } @else {
+      <div class="no-trails">
+        <p>No trails available for now.</p>
+        <button class="create-btn" onclick="createTrail()">Create a Trail</button>
       </div>
-    </div>
-
-    <div class="card">
-      <div class="price-badge">$820</div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Malyovitsa-winter-ifb.JPG" alt="Everest Base Camp">
-      <div class="card-content">
-          <div class="meta">
-            <div>12 Days</div>
-            <div>10 Max Group Size</div>
-            <div>High Difficulty</div>
-          </div>
-        <h3>Trekking Expedition</h3>
-        <p>Everest Base Camp</p>
-        <p>Ama Dablam, Nepal</p>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card">
-      <div class="price-badge">$320</div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Malyovitsa-winter-ifb.JPG" alt="Monte Bianco">
-      <div class="card-content">
-          <div class="meta">
-            <div>3 Days</div>
-            <div>10 Max Group Size</div>
-            <div>High Difficulty</div>
-          </div>
-        <h3>Hiking Expedition</h3>
-        <p>Monte Bianco</p>
-        <p>Courmayeur, France</p>
-      </div>
-    </div>
+    }
+  } @else {
+    <div class="loader"></div>
+  }
+    
   </section>
 </main>

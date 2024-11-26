@@ -39,23 +39,27 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 50px 10%;
+  padding: 30px 10%;
   background: #f7f7f7;
 }
 
 .info-content {
   width: 50%;
+  text-align: center;
 }
 
-.info-guide .guide-card {
+ .guide-card {
   text-align: center;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   max-width: 300px;
-  margin: 0 auto;
+  margin-left: auto;
+  padding-bottom: auto;
 }
+
+
 
 .guide-card img {
   border-radius: 50%;

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { UserService } from '../user.service';
 import { FormsModule, NgForm } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent {
 
   body = {};
 
-  constructor(private userService: UserService){}
+  constructor(private route: Router, private userService: UserService){}
 
   formSubmitHandler() {
 
@@ -24,7 +24,15 @@ export class RegisterComponent {
       
     }
    this.body = this.form?.value;
+    const {username, email, password} = this.form?.value;
     
-   this.userService.register(this.body);
+   try{
+     this.userService.register({username, email, password});
+
+    this.route.navigate(['/home']);
+   } catch(err) {
+    console.log(err);
+    
+   }
   }
 }
