@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AboutTestService } from './about-test.service';
 
 @Component({
   selector: 'app-about',
@@ -9,14 +8,6 @@ import { AboutTestService } from './about-test.service';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
 
-  constructor(private service: AboutTestService) {}
-  ngOnInit(): void {
-    const users = this.service.test().subscribe(data => {
-      console.log(data);
-      
-    });
-
-  }
 }

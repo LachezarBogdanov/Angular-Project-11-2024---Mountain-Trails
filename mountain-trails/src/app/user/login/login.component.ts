@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
   authLogin(username: string, email: string, password: string) {
     
   }
