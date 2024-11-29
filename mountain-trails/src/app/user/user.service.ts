@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { API_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +11,29 @@ export class UserService {
 
   register(body: object) {
       
-    this.http.post(`${API_URL}/register`, body).subscribe((data) => {
-      const token = data;
+    this.http.post(`/api/register`, body).subscribe({
+      next: () => {
+        
+          this.router.navigate(['/home']);
+          
+        
+      }, error(err) {
+        console.log(err.error.err);
+        
+      }
 
-      console.log(token);
-      
     });
 
-    this.router.navigate(['/home']);
+  }
+
+  login(body: object) {
+    this.http.post('/api/login', body).subscribe({
+      next: () => {
+        this.router.navigate(['/home']);
+      }, error(err) {
+        console.log(err.error.err);
+        
+      }
+    })
   }
 }

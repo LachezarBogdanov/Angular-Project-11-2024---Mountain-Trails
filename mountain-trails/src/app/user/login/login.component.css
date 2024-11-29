@@ -1,6 +1,6 @@
 .login-content {
     text-align: center;
-    padding: 77px 20px;
+    padding: 100px 20px;
     max-width: 500px;
     margin: 0 auto;
     margin-top: 20px;
@@ -15,6 +15,10 @@
   .login-content h1 {
     font-size: 2rem;
     margin-bottom: 30px;
+  }
+
+  .errorMsg {
+    color: red;
   }
   
   .login-form {

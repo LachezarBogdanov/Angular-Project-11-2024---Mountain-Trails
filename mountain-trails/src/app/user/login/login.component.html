@@ -1,19 +1,31 @@
 <main class="login-content">
     <h1>Login to Your Account</h1>
-    <form class="login-form">
-      <div class="form-group">
-        <label for="password">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required #username>
-      </div>
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="authLogin()">
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required #email>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required ngModel email #emailInput="ngModel">
       </div>
+
+      @if(emailInput.touched) {
+        @if(emailInput?.errors?.['required']) {
+          <div class="errorMsg"> Email is required!</div>
+        }
+
+        @if(emailInput?.errors?.['email']) {
+          <div class="errorMsg"> Email is invalid!</div>
+        }
+      }
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required #password>
+        <input type="password" id="password" name="password" placeholder="Enter your password" ngModel required #passwordInput="ngModel">
       </div>
-      <button type="submit" class="btn-login">Login</button>
+
+      @if(passwordInput?.touched) {
+        @if(passwordInput?.errors?.['required']) {
+          <div class="errorMsg"> Password is required!</div>
+        }
+      }
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Login</button>
     </form>
     <p class="register-link">Don't have an account? <a routerLink="/register">Register here</a></p>
   </main>

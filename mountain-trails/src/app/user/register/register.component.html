@@ -1,23 +1,56 @@
 <main class="register-content">
     <h1>Create an Account</h1>
-    <form #registerForm="ngForm" class="register-form" (ngSubmit)="formSubmitHandler()">
+    <form [formGroup]="form" class="register-form" (ngSubmit)="formSubmitHandler()">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" ngModel #usernameInput="ngModel" required >
+        <input type="text" id="username" name="username" placeholder="Enter your username" formControlName="username" >
       </div>
+
+      @if(form.get('username')?.touched) {
+        @if(form.get('username')?.errors?.['required']){
+          <div class="errorMsg">Username required!</div>
+        }
+
+        @if(form.get('username')?.errors?.['minlength']) {
+          <div class="errorMsg">Username must be at least 5 characters!</div>
+        }
+      }
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="Enter your email" ngModel email #emailInput="ngModel" required >
+        <input type="text" id="email" name="email" placeholder="Enter your email" formControlName="email">
       </div>
-      <div class="form-group">
+
+      @if(form.get('email')?.touched) {
+        @if(form.get('email')?.errors?.['required']) {
+          <div class="errorMsg">Email is required</div>
+        }
+
+        @if(form.get('email')?.errors?.['email']) {
+          <div class="errorMsg">Email is not valid!</div>
+        }
+      }
+      <div formGroupName="passGroup">
+      <div class="form-group passwordsWrp">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" ngModel #passwordInput="ngModel" required >
+        <input type="password" id="password" name="password" placeholder="Enter your password" formControlName="password" >
       </div>
-      <div class="form-group">
+
+      @if(passGroup?.get('password')?.touched) {
+        @if(passGroup?.get('password')?.errors?.['required']) {
+          <div class="errorMsg">Password is required</div>
+        }
+      }
+
+      <div class="form-group passwordsWrp">
         <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="rePassword" placeholder="Confirm your password" ngModel #rePasswordInput="ngModel" required>
+        <input type="password" id="confirm-password" name="rePassword" placeholder="Confirm your password" formControlName="rePassword" >
       </div>
-      <button type="submit" class="btn-register">Register</button>
+
+      @if(passGroup?.errors?.['matchPasswordsValidator']) {
+        <div class="errorMsg">Repeat Password does not match!</div>
+      }
+    </div>
+      <button type="submit" class="btn-register" [disabled]="form.invalid">Register</button>
     </form>
     <p class="login-link">Already have an account? <a routerLink="/login">Login here</a></p>
   </main>

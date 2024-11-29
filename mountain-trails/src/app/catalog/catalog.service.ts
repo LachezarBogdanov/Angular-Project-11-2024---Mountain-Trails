@@ -11,7 +11,7 @@ export class CatalogService {
 
   constructor(private http: HttpClient) { }
 
-  getTrails(): Observable<Trail[]> {
+  getTrails() {
     return this.http.get<Trail[]>(`${API_URL}/catalog`);
   }
 }

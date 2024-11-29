@@ -22,11 +22,19 @@
     font-size: 2rem;
     margin-bottom: 30px;
   }
+
+  .errorMsg {
+    color: red;
+  }
   
   .register-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  .passwordsWrp {
+    padding-bottom: 10px;
   }
   
   .form-group {

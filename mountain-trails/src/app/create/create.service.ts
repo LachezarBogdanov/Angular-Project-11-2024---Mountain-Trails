@@ -13,11 +13,11 @@ export class CreateService {
   create(trailsData: object) {
     console.log(trailsData);
     
-    this.http.post(`${API_URL}/create`, trailsData).subscribe((data) => {
+    this.http.post(`/api/create`, trailsData).subscribe((data) => {
       console.log(data);
       
+      this.router.navigate(['/catalog']);
     });
     
-    this.router.navigate(['/catalog']);
   }
 }

@@ -28,7 +28,6 @@ export class CreateComponent {
     try{
       this.createService.create(this.trail);
       
-      this.route.navigate(['/catalog']);
     } catch(err) {
       console.log(err);
       
