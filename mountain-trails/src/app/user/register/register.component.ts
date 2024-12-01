@@ -41,6 +41,8 @@ export class RegisterComponent {
     
    this.body = this.form?.value;
     
-    this.userService.register(this.body);
+    this.userService.register(this.body).subscribe(() => {
+      this.route.navigate(['/home']);
+    });
   }
 }

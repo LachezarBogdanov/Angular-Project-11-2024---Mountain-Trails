@@ -14,3 +14,12 @@ export interface Trail {
     updated: number | null;
     ___class: string;
   }
+
+
+export interface User {
+_id: string;
+username: string;
+email: string;
+password: string;
+__v: number;
+}

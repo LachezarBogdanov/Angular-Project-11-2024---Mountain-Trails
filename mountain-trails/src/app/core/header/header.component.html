@@ -4,12 +4,16 @@
       <a routerLink="/home">Home</a>
       <a routerLink="/about">About</a>
       <a routerLink="/catalog">Catalog</a>
-      <a routerLink="/login">Login</a>
-      <a routerLink="/register">Register</a>
-      <a href="#logout">Logout</a>
-      <a routerLink="/details">Details</a>
-      <a routerLink="/edit">Edit</a>
-      <a routerLink="/create">Create</a>
+      @if(isLoggedIn) {
+        <a routerLink="/details">Details</a>
+        <a routerLink="/edit">Edit</a>
+        <a routerLink="/create">Create</a>
+        <a href="#logout">Logout</a>
+
+      } @else {
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Register</a>
+      }
     </nav>
   </header>
   
