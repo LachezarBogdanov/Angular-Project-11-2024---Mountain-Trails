@@ -131,7 +131,8 @@ main {
   border-radius: 5px;
 }
 
-.add-btn{
-  position: absolute;
-  left: 49%;
+.add-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Position the button below the content */
 }

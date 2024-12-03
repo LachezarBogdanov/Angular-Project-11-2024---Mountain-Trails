@@ -8,7 +8,7 @@
         <a routerLink="/details">Details</a>
         <a routerLink="/edit">Edit</a>
         <a routerLink="/create">Create</a>
-        <a href="#logout">Logout</a>
+        <a (click)="logout()">Logout</a>
 
       } @else {
         <a routerLink="/login">Login</a>

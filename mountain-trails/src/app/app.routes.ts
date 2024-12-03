@@ -16,8 +16,18 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'catalog', component: CatalogComponent},
     {path: 'about', component: AboutComponent},
-    {path: 'details', component: DetailsComponent},
+    {
+        path: 'details',
+        children: [
+            {path: '', component: HomeComponent},
+            {
+                path: ':trailId',
+                component: DetailsComponent,
+            }
+        ]
+    },
     {path: 'edit', component: EditComponent},
     {path: 'create', component: CreateComponent},
     {path: '**', component: ErrorComponent},
 ];
+

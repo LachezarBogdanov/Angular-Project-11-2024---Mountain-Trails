@@ -13,7 +13,7 @@
     @if(trails && trails.length > 0) {
 
       @for (trail of trails; track $index) {
-        <div class="card">
+        <div class="card" [routerLink]="['/details', trail._id]">
           <div class="price-badge">${{trail.price}}</div>
           <img src="{{trail.img}}" alt="{{trail.name}}">
           <div class="card-content">
@@ -22,12 +22,11 @@
               <div>10 Max Group Size</div>
               <div>{{trail.difficulty}} Difficulty</div>
             </div>
-            <h3>{{trail.type}} Expedition</h3>
+            <h3> Expedition</h3>
             <p>{{trail.name}}</p>
             <p>Ama Dablam, Nepal</p>
           </div>
         </div>
-        
       }
     } @else {
       <div class="no-trails">
@@ -36,7 +35,7 @@
       </div>
     }
   } @else {
-    <div class="loader"></div>
+    <app-loader />
   }
     
   </section>

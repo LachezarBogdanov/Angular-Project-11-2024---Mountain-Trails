@@ -34,6 +34,11 @@ export class UserService {
     return this.http.post<User>('/api/login', body).pipe(tap((user) => this.user$$.next(user)))
   }
 
+  logout() {
+    return this.http.post('/api/logout', {})
+        .pipe(tap((user) => this.user$$.next(null)));
+  }
+
   getProfile() {
     return this.http
       .get<User>('/api/profile')

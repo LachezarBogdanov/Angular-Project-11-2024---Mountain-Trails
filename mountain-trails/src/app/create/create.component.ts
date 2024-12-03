@@ -15,7 +15,7 @@ export class CreateComponent {
 
   trail = {};
 
-  constructor(private route: Router, private createService: CreateService){}
+  constructor(private router: Router, private createService: CreateService){}
 
   createSubmitHandler() {
 
@@ -25,12 +25,10 @@ export class CreateComponent {
 
     this.trail = this.form?.value;
     
-    try{
-      this.createService.create(this.trail);
-      
-    } catch(err) {
-      console.log(err);
-      
-    }
+    this.createService.createTrail(this.trail).subscribe(() => {
+        this.router.navigate(['/catalog']);
+        
+      });
+   
   }
 }
