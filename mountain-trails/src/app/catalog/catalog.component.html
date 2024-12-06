@@ -10,29 +10,29 @@
   <!-- Cards Section -->
   <section class="cards-container">
     @if(isLoading){
-    @if(trails && trails.length > 0) {
-
+    @if(trails.length === 0) {
+      <div class="no-trails">
+        <p>No trails available for now.</p>
+        <button class="create-btn" routerLink="/create">Create a Trail</button>
+      </div>
+      
+    } @else {
       @for (trail of trails; track $index) {
         <div class="card" [routerLink]="['/details', trail._id]">
           <div class="price-badge">${{trail.price}}</div>
           <img src="{{trail.img}}" alt="{{trail.name}}">
           <div class="card-content">
             <div class="meta">
-              <div>12 Days</div>
-              <div>10 Max Group Size</div>
-              <div>{{trail.difficulty}} Difficulty</div>
+              <div>Duration: {{trail.duration}}h</div>
+              <div>Type: {{trail.type}}</div>
+              <div>Difficulty: {{trail.difficulty}}</div>
             </div>
-            <h3> Expedition</h3>
+            <h3> Trail </h3>
             <p>{{trail.name}}</p>
-            <p>Ama Dablam, Nepal</p>
+            <p>{{trail.mountain}}</p>
           </div>
         </div>
       }
-    } @else {
-      <div class="no-trails">
-        <p>No trails available for now.</p>
-        <button class="create-btn" onclick="createTrail()">Create a Trail</button>
-      </div>
     }
   } @else {
     <app-loader />

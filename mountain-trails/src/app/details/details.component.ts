@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Trail } from '../../types';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -23,7 +23,6 @@ export class DetailsComponent implements OnInit {
 
     
     this.apiService.getOneTrail(id).subscribe((data: Trail) => {
-            
       this.trail = data;    
     })
   }

@@ -2,7 +2,6 @@
   <!-- Hero Section -->
   <section class="hero">
     <h1>{{trail.name}}</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Unde veniam aperiam rerum quis atque, illum.</p>
   </section>
 
   <!-- Information Section -->
@@ -10,26 +9,29 @@
     <div class="info-container">
       <!-- Text Content -->
       <div class="info-content">
-        <h2>Beautiful Trek</h2>
-        <h4>Discover the wild nature</h4>
+        <h2>Trail type: {{trail.type}}</h2>
+        <h4>Mountain: {{trail.mountain}}</h4>
         <p>
           {{trail.description}}
         </p>
       </div>
       <!-- Mountain Guide Box -->
-      <!-- <div class="info-guide"> -->
-        <div class="guide-card">
-          <img src="https://via.placeholder.com/100" alt="Guide">
-          <h3>Mountain Guide</h3>
-          <p><strong>Name:</strong> John Doe</p>
-          <p><strong>Nation:</strong> Italy</p>
-          <div class="social-icons">
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
-          </div>
+      <div class="guide-card">
+        <img src="https://via.placeholder.com/100" alt="Guide">
+        <h3>Mountain Guide</h3>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Nation:</strong> Italy</p>
+        <div class="social-icons">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
         </div>
       </div>
-    <!-- </div> -->
+    </div>
+    <!-- Edit and Delete Buttons -->
+    <div class="button-container">
+      <button class="edit-btn" routerLink="/edit/{{trail._id}}">Edit</button>
+      <button class="delete-btn" routerLink="/delete/{{trail._id}}">Delete</button>
+    </div>
   </section>
 
   <!-- More Info Section -->
@@ -38,15 +40,19 @@
     <div class="info-icons">
       <div class="info-item">
         <img src="duration.png" alt="Icon">
-        <p><strong>Duration:</strong> 3 Hours</p>
+        <p><strong>Duration:</strong> {{trail.duration}} Hours</p>
       </div>
       <div class="info-item">
-        <img src="https://via.placeholder.com/50" alt="Icon">
-        <p><strong>Type:</strong> Hiking</p>
+        <img src="hikingLogo.jpeg" alt="Icon">
+        <p><strong>Type:</strong> {{trail.type}}</p>
       </div>
       <div class="info-item">
         <img src="backpack.jpeg" alt="Icon">
-        <p><strong>Difficulty:</strong> Intermediate</p>
+        <p><strong>Difficulty:</strong> {{trail.difficulty}}</p>
+      </div>
+      <div class="info-item">
+        <img src="mileage.jpeg" alt="Icon">
+        <p><strong>Mileage:</strong> {{trail.mileage}} km</p>
       </div>
     </div>
   </section>
@@ -54,15 +60,12 @@
   <!-- Gallery Section -->
   <section class="gallery">
     <h3>Gallery</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <p>Here are some photos of the trail:</p>
     <div class="gallery-grid">
-      <img src="https://s1.wklcdn.com/image_2/64039/126172400/80901193.400x300.jpg" alt="Gallery 1">
-      <img src="https://via.placeholder.com/400x300" alt="Gallery 2">
-      <img src="https://via.placeholder.com/400x300" alt="Gallery 3">
-      <img src="https://via.placeholder.com/400x300" alt="Gallery 4">
+      <img src="{{trail.img}}" alt="Gallery Image">
     </div>
     <div class="add-btn">
-      <button>add</button>
+      <button>Add</button>
     </div>
   </section>
 </main>

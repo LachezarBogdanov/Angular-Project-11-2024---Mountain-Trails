@@ -3,40 +3,65 @@
       <h2>Edit Car Details</h2>
 
       <!-- Edit Form -->
-      <form action="/submit-edit" method="POST" class="edit-form">
+      <form class="edit-form" #editForm="ngForm" (ngSubmit)="editSubmitHandler()">
         <div class="form-group">
-          <label for="car-make">Make:</label>
-          <input type="text" id="car-make" name="car-make" placeholder="Current Make" required>
+          <label for="img">Image URL:</label>
+          <input type="url" id="img" name="img" [(ngModel)]="trail.img" placeholder="Enter image URL" ngModel #imageInput="ngModel" required>
         </div>
 
+        <!-- Name -->
         <div class="form-group">
-          <label for="car-model">Model:</label>
-          <input type="text" id="car-model" name="car-model" placeholder="Current Model" required>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" [(ngModel)]="trail.name" placeholder="Enter trail name" ngModel #nameInput="ngModel" required>
         </div>
 
+        <!-- Difficulty -->
         <div class="form-group">
-          <label for="year">Year:</label>
-          <input type="number" id="year" name="year" placeholder="2024" required>
+          <label for="difficulty">Difficulty:</label>
+          <select id="difficulty" name="difficulty" [(ngModel)]="trail.difficulty" ngModel #difficultyInput="ngModel" required>
+            <option value="easy">Easy</option>
+            <option value="moderate">Moderate</option>
+            <option value="hard">Hard</option>
+          </select>
         </div>
 
-        <div class="form-group">
-          <label for="price">Price:</label>
-          <input type="number" id="price" name="price" placeholder="Current Price" required>
-        </div>
-
-        <div class="form-group">
-          <label for="mileage">Mileage:</label>
-          <input type="text" id="mileage" name="mileage" placeholder="Current Mileage" required>
-        </div>
-
+        <!-- Description -->
         <div class="form-group">
           <label for="description">Description:</label>
-          <textarea id="description" name="description" placeholder="description" rows="4" required></textarea>
+          <textarea id="description" name="description" [(ngModel)]="trail.description" placeholder="Enter trail description" rows="5" ngModel #descriptionInput="ngModel" required></textarea>
+        </div>
+
+        <!-- Duration -->
+        <div class="form-group">
+          <label for="description">Duration:</label>
+          <input  type="number" id="duration" name="duration" [(ngModel)]="trail.duration" placeholder="Enter trail duration"  ngModel #durationInput="ngModel" required>
+        </div>
+
+        <!-- Mountain  -->
+        <div class="form-group">
+          <label for="description">Mountain:</label>
+          <input  type="text" id="mountain" name="mountain" [(ngModel)]="trail.mountain" placeholder="Enter mountain"  ngModel #mountainInput="ngModel" required>
         </div>
 
         <div class="form-group">
-          <label for="image-url">Image URL:</label>
-          <input type="url" id="image-url" name="image-url" placeholder="Current Image URL">
+          <label for="type">Type:</label>
+          <select id="type" name="type" ngModel [(ngModel)]="trail.type" #typeInput="ngModel" required>
+            <option value="hiking">Hiking</option>
+            <option value="ycling">Cycling</option>
+            <option value="walking">Walking</option>
+          </select>
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" [(ngModel)]="trail.price" placeholder="Enter price (in USD)" ngModel #priceInput="ngModel" required>
+        </div>
+
+        <!-- Mileage -->
+        <div class="form-group">
+          <label for="mileage">Mileage (km):</label>
+          <input type="number" id="mileage" name="mileage" [(ngModel)]="trail.mileage" placeholder="Enter mileage" ngModel #mileageInput="ngModel" required>
         </div>
 
         <!-- Edit Button -->

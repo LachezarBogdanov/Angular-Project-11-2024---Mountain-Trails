@@ -21,8 +21,8 @@ export class CatalogComponent implements OnInit {
   ngOnInit(){
     this.apiService.getTrails().subscribe((data: Trail[]) => {
       this.trails = data;
+      this.isLoading = true;
     });
     
-    this.isLoading = true;
   }
 }

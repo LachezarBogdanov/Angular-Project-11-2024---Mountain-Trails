@@ -1,5 +1,4 @@
 /* General Reset */
-
 main {
   margin: 0;
   padding: 0;
@@ -29,37 +28,34 @@ main {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
-.hero p {
-  font-size: 1.2rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
-
 /* Information Section */
 .info-section {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
   padding: 30px 10%;
   background: #f7f7f7;
 }
 
-.info-content {
-  width: 50%;
-  text-align: center;
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
- .guide-card {
+.info-content {
+  width: 50%;
+}
+
+.guide-card {
   text-align: center;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
-  max-width: 300px;
-  margin-left: auto;
-  padding-bottom: auto;
+  width: 300px;
 }
-
-
 
 .guide-card img {
   border-radius: 50%;
@@ -80,16 +76,41 @@ main {
   color: #000;
 }
 
+/* Buttons Section */
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
 /* More Info Section */
 .more-info {
   text-align: center;
   padding: 50px 10%;
   background: #fff;
-}
-
-.more-info h3 {
-  font-size: 2rem;
-  margin-bottom: 20px;
 }
 
 .info-icons {
@@ -99,18 +120,8 @@ main {
   margin-top: 20px;
 }
 
-.info-item {
-  text-align: center;
-}
-
 .info-item img {
   margin-bottom: 10px;
-}
-
-.info-item p {
-  margin-top: 5px;
-  font-size: 1rem;
-  font-weight: bold;
 }
 
 /* Gallery Section */
@@ -127,12 +138,12 @@ main {
 
 .gallery-grid img {
   width: 100%;
-  height: auto;
+  height: 400px;
   border-radius: 5px;
 }
 
 .add-btn {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Position the button below the content */
+  margin-top: 20px;
 }

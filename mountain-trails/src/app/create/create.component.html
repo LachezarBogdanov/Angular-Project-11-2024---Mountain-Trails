@@ -42,6 +42,15 @@
           <input  type="text" id="mountain" name="mountain" placeholder="Enter mountain"  ngModel #mountainInput="ngModel" required>
         </div>
 
+        <div class="form-group">
+          <label for="type">Type:</label>
+          <select id="type" name="type" ngModel #typeInput="ngModel" required>
+            <option value="easy">Hiking</option>
+            <option value="moderate">Cycling</option>
+            <option value="hard">Walking</option>
+          </select>
+        </div>
+
         <!-- Price -->
         <div class="form-group">
           <label for="price">Price:</label>

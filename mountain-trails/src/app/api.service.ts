@@ -18,4 +18,8 @@ export class ApiService {
   getOneTrail(id: string) {
     return this.http.get<Trail>(`/api/details/${id}`);
   }
+
+  updateTrail(data: Trail, trailId: string) {
+    return this.http.put(`/api/edit/${trailId}`, data);
+  }
 }

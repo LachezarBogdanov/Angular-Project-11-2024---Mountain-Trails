@@ -5,7 +5,6 @@
       <a routerLink="/about">About</a>
       <a routerLink="/catalog">Catalog</a>
       @if(isLoggedIn) {
-        <a routerLink="/details">Details</a>
         <a routerLink="/edit">Edit</a>
         <a routerLink="/create">Create</a>
         <a (click)="logout()">Logout</a>

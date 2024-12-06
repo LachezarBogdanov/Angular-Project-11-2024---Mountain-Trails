@@ -5,7 +5,10 @@ export interface Trail {
   difficulty: string;
   description: string;
   price: number;
+  mountain: string;
   mileage: number;
+  duration: number;
+  type: string;
   owner: string;
   __v: number;
   }
