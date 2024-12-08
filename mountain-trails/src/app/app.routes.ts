@@ -8,6 +8,7 @@ import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -38,6 +39,7 @@ export const routes: Routes = [
         ]
     },
     {path: 'create', component: CreateComponent},
+    {path: 'profile', component: ProfileComponent},
     {path: '**', component: ErrorComponent},
 ];
 

@@ -22,4 +22,8 @@ export class ApiService {
   updateTrail(data: Trail, trailId: string) {
     return this.http.put(`/api/edit/${trailId}`, data);
   }
+
+  deleteTrail(trailId: string) {
+    return this.http.delete(`/api/delete/${trailId}`);
+  }
 }

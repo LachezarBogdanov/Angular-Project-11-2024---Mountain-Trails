@@ -20,9 +20,8 @@ export class AuthenticateComponent implements OnInit {
       next: (data) => {
         this.isAuthenticating = false;
       },
-      error: () => {
+      error: (err) => {
         this.isAuthenticating = false;
-        this.router.navigate(['/login']);
       },
       complete: () => {
         this.isAuthenticating = false;

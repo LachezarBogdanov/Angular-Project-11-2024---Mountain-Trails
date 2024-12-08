@@ -27,13 +27,14 @@
         </div>
       </div>
     </div>
+    @if(isOwner) {
     <!-- Edit and Delete Buttons -->
     <div class="button-container">
       <button class="edit-btn" routerLink="/edit/{{trail._id}}">Edit</button>
-      <button class="delete-btn" routerLink="/delete/{{trail._id}}">Delete</button>
+      <button class="delete-btn" (click)="deleteHandler(trail._id)">Delete</button>
     </div>
-  </section>
-
+  }
+</section>
   <!-- More Info Section -->
   <section class="more-info">
     <h3>Details</h3>
