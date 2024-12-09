@@ -30,6 +30,15 @@
           <textarea id="description" name="description" placeholder="Enter trail description" rows="5" ngModel #descriptionInput="ngModel" required></textarea>
         </div>
 
+        <div class="form-group">
+          <label for="guide">Guide:</label>
+          <select id="guide" name="guide" ngModel #guideInput="ngModel" required>
+            <option value="Aleksandar Yosifov">Aleksandar Yosifov</option>
+            <option value="Svetoslav Zafirov">Svetoslav Zafirov</option>
+            <option value="Ivaylo Hristov">Ivaylo Hristov</option>
+          </select>
+        </div>
+
         <!-- Duration -->
         <div class="form-group">
           <label for="description">Duration:</label>

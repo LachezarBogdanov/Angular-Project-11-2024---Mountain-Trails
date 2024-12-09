@@ -61,7 +61,7 @@
   
   .profile-info-container h2 {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #2a3344;
     color: white;
     text-align: center;
@@ -74,15 +74,15 @@
   }
   
   .trails-section {
-    padding: 1rem;
-    box-sizing: border-box;
-    flex-grow: 1; 
+    flex-shrink: 0; 
+    width: 100%; 
+    margin-top: auto; 
   }
   
   /* Section Header */
   .trails-section h2 {
     margin-bottom: 1rem;
-    color: #2a3344;
+    color:white;
     font-size: 1.5rem;
   }
   
@@ -99,10 +99,10 @@
     border: 1px solid #ddd;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     height: 300px;
     width: 100%;
+    cursor: pointer;
   }
   
   .trail-card:hover {
@@ -131,6 +131,19 @@
     margin: 0.5rem 0;
     font-size: 0.95rem;
     color: #555;
+  }
+
+  .no-trails {
+    font-size: 1.2rem; 
+    color: white;
+    background-color: #2a3344; 
+    padding: 1rem; 
+    text-align: center; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto 0; 
+    width: 80%;
+    max-width: 400px; 
   }
   
   @media (max-width: 1024px) {

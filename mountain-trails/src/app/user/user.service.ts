@@ -36,7 +36,7 @@ export class UserService {
 
   logout() {
     return this.http.post('/api/logout', {})
-        .pipe(tap((user) => this.user$$.next(null)));
+        .pipe(tap(() => this.user$$.next(null)));
   }
 
   getProfile() {

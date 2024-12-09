@@ -19,23 +19,16 @@
       <div class="container">
         <h2>Meet the Team</h2>
         <div class="team-members">
+          @for (guide of guides; track $index) {
           <div class="team-member">
-            <img src="team1.jpg" alt="John Doe - Lead Guide">
-            <h3>John Doe</h3>
-            <p>Lead Guide</p>
+            <img src="{{guide.img}}" alt="{{guide.name}}">
+            <h3>Name: {{guide.name}}</h3>
+            <p>Nation: {{guide.nation}}</p>
+            <p>Experience: {{guide.experience}} years</p>
           </div>
-          <div class="team-member">
-            <img src="team2.jpg" alt="Jane Smith - Guide">
-            <h3>Jane Smith</h3>
-            <p>Guide</p>
-          </div>
-          <div class="team-member">
-            <img src="team3.jpg" alt="Sam Brown - Trail Expert">
-            <h3>Sam Brown</h3>
-            <p>Trail Expert</p>
-          </div>
-        </div>
+        }
       </div>
+    </div>
     </section>
 
     <!-- Contact Section -->

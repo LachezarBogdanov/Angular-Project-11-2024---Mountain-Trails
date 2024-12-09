@@ -60,6 +60,9 @@ main {
 .guide-card img {
   border-radius: 50%;
   margin-bottom: 15px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .guide-card h3 {

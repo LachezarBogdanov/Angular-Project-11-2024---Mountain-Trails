@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Trail } from '../../types';
+import { Guide, Trail } from '../../types';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
 import { UserService } from '../user/user.service';
-import { catchError, forkJoin, of, tap } from 'rxjs';
+import { catchError, forkJoin, of, tap} from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -15,7 +15,9 @@ import { catchError, forkJoin, of, tap } from 'rxjs';
 export class DetailsComponent implements OnInit {
   trail = {} as Trail;
   userId = '';
+  guideName = '';
   isOwner: boolean = false;
+  guide: Guide | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,27 +31,45 @@ export class DetailsComponent implements OnInit {
 
     forkJoin({
       user: this.userService.getProfile().pipe(
-        catchError(() => of(null))  // If an error occurs (user not logged in), return null
+        catchError(() => of(null)) 
       ),
       trail: this.apiService.getOneTrail(id)
     }).subscribe({
       next: ({ user, trail }) => {
         this.trail = trail;
+        this.guideName = trail.guide;
 
         if (user) {
-          this.userId = user._id;  // If user is logged in, set the userId
+          this.userId = user._id;
           this.isOwner = this.userId === this.trail.owner;
         } else {
-          this.userId = '';  // If no user, set userId to empty
-          this.isOwner = false;  // Ensure isOwner is false if not logged in
+          this.userId = '';
+          this.isOwner = false; 
         }
+
+        this.getOneGuide(trail.guide)
       },
       error: (err) => {
-        // Handle errors that might occur during the API calls
-        console.error('Error fetching data:', err);
+        console.error('Error:', err);
       }
     });
     
+  }
+
+  getOneGuide(guideName: string) {
+    this.apiService.getOneGuide(guideName).subscribe({
+      next: (data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          this.guide = data[0]; // Get the first object from the array
+        } else {
+          console.error('No guides found or data is not an array');
+        }
+        console.log(data); // Check the data structure
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
   deleteHandler(trailId: string) {

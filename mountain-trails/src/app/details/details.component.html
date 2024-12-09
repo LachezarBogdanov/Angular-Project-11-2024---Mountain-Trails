@@ -17,14 +17,11 @@
       </div>
       <!-- Mountain Guide Box -->
       <div class="guide-card">
-        <img src="https://via.placeholder.com/100" alt="Guide">
+        <img [src]="guide?.img" alt="Guide">
         <h3>Mountain Guide</h3>
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>Nation:</strong> Italy</p>
-        <div class="social-icons">
-          <a href="#">Twitter</a>
-          <a href="#">Instagram</a>
-        </div>
+        <p><strong>Name:</strong>{{guide?.name}}</p>
+        <p><strong>Nation:</strong>{{guide?.nation}}</p>
+        <p><strong>Experience:</strong>{{guide?.experience}} years</p>
       </div>
     </div>
     @if(isOwner) {
