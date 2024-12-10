@@ -87,3 +87,6 @@
     color: #ffcc00;
   }
   
+  .error-msg {
+    color: red;
+  }

@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Guide, Trail } from '../types';
-import { switchMap } from 'rxjs';
-import { UserService } from './user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +23,10 @@ export class ApiService {
 
   deleteTrail(trailId: string) {
     return this.http.delete(`/api/delete/${trailId}`);
+  }
+
+  likeTrail(trailId: string, userId: string) {
+    return this.http.put(`/api/like/${trailId}`, {userId});
   }
 
   getGuides() {

@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
 export class ProfileComponent implements OnInit {
   profile: User | null = null;
   allTrails: Trail[] = [];
+  userId: string | undefined = '';
 
   constructor(private userService: UserService, private apiService: ApiService) {}
 
@@ -27,10 +28,10 @@ export class ProfileComponent implements OnInit {
       trails: this.apiService.getTrails()
     }).subscribe({
       next: ({profile, trails}) => {
-        console.log(profile);
-        
+
+        this.userId = profile?._id;
         this.profile = profile;
-        this.allTrails = trails;
+        this.allTrails = trails.filter((trail) => trail.owner === this.userId);
       },
       error: (err) => {
         console.log(err)

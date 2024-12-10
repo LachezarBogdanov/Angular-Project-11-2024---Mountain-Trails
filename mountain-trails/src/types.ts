@@ -11,6 +11,7 @@ export interface Trail {
   duration: number;
   type: string;
   owner: string;
+  likes: string[];
   __v: number;
   }
 

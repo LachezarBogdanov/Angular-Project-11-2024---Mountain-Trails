@@ -1,6 +1,6 @@
 <main class="main-content">
     <section class="edit-section">
-      <h2>Edit Car Details</h2>
+      <h2>Edit Trail</h2>
 
       <!-- Edit Form -->
       <form class="edit-form" #editForm="ngForm" (ngSubmit)="editSubmitHandler()">
@@ -9,11 +9,23 @@
           <input type="url" id="img" name="img" [(ngModel)]="trail.img" placeholder="Enter image URL" ngModel #imageInput="ngModel" required>
         </div>
 
+        @if(imageInput.touched) {
+          @if(imageInput?.errors?.['required']) {
+            <div class="error-msg">Image is required!</div>
+          }
+        }
+
         <!-- Name -->
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" [(ngModel)]="trail.name" placeholder="Enter trail name" ngModel #nameInput="ngModel" required>
         </div>
+
+        @if(nameInput.touched) {
+          @if(nameInput?.errors?.['required']) {
+            <div class="error-msg">Name is required!</div>
+          }
+        }
 
         <!-- Difficulty -->
         <div class="form-group">
@@ -25,11 +37,23 @@
           </select>
         </div>
 
+        @if(difficultyInput.touched) {
+          @if(difficultyInput?.errors?.['required']) {
+            <div class="error-msg">Difficulty is required!</div>
+          }
+        }
+
         <!-- Description -->
         <div class="form-group">
           <label for="description">Description:</label>
           <textarea id="description" name="description" [(ngModel)]="trail.description" placeholder="Enter trail description" rows="5" ngModel #descriptionInput="ngModel" required></textarea>
         </div>
+
+        @if(descriptionInput.touched) {
+          @if(descriptionInput?.errors?.['required']) {
+            <div class="error-msg">Description is required!</div>
+          }
+        }
 
         <!-- Duration -->
         <div class="form-group">
@@ -37,20 +61,38 @@
           <input  type="number" id="duration" name="duration" [(ngModel)]="trail.duration" placeholder="Enter trail duration"  ngModel #durationInput="ngModel" required>
         </div>
 
+        @if(durationInput.touched) {
+          @if(durationInput?.errors?.['required']) {
+            <div class="error-msg">Duration is required!</div>
+          }
+        }
+
         <!-- Mountain  -->
         <div class="form-group">
           <label for="description">Mountain:</label>
           <input  type="text" id="mountain" name="mountain" [(ngModel)]="trail.mountain" placeholder="Enter mountain"  ngModel #mountainInput="ngModel" required>
         </div>
 
+        @if(mountainInput.touched) {
+          @if(mountainInput?.errors?.['required']) {
+            <div class="error-msg">Mountain is required!</div>
+          }
+        }
+
         <div class="form-group">
           <label for="type">Type:</label>
-          <select id="type" name="type" ngModel [(ngModel)]="trail.type" #typeInput="ngModel" required>
+          <select id="type" name="type" [(ngModel)]="trail.type" ngModel #typeInput="ngModel" required>
             <option value="hiking">Hiking</option>
-            <option value="ycling">Cycling</option>
+            <option value="cycling">Cycling</option>
             <option value="walking">Walking</option>
           </select>
         </div>
+
+        @if(typeInput.touched) {
+          @if(typeInput?.errors?.['required']) {
+            <div class="error-msg">Type is required!</div>
+          }
+        }
 
         <!-- Price -->
         <div class="form-group">
@@ -58,14 +100,26 @@
           <input type="number" id="price" name="price" [(ngModel)]="trail.price" placeholder="Enter price (in USD)" ngModel #priceInput="ngModel" required>
         </div>
 
+        @if(priceInput.touched) {
+          @if(priceInput?.errors?.['required']) {
+            <div class="error-msg">Price is required!</div>
+          }
+        }
+
         <!-- Mileage -->
         <div class="form-group">
           <label for="mileage">Mileage (km):</label>
           <input type="number" id="mileage" name="mileage" [(ngModel)]="trail.mileage" placeholder="Enter mileage" ngModel #mileageInput="ngModel" required>
         </div>
 
+        @if(mileageInput.touched) {
+          @if(mileageInput?.errors?.['required']) {
+            <div class="error-msg">Mileage is required!</div>
+          }
+        }
+
         <!-- Edit Button -->
-        <button type="submit" class="btn-edit">Edit</button>
+        <button type="submit" class="btn-edit" [disabled]="editForm.invalid">Edit</button>
       </form>
     </section>
   </main>

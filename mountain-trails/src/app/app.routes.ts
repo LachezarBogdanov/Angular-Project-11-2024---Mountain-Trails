@@ -9,6 +9,8 @@ import { CreateComponent } from './create/create.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -34,12 +36,14 @@ export const routes: Routes = [
         children: [
             {
                 path: ':trailId',
-                component: EditComponent
+                component: EditComponent,
+                canActivate: [authGuard]
             }
         ]
     },
-    {path: 'create', component: CreateComponent},
-    {path: 'profile', component: ProfileComponent},
+    {path: 'create', component: CreateComponent, canActivate: [authGuard]},
+    {path: 'profile', component: ProfileComponent, canActivate: [authGuard]},
+    {path: 'profile/edit', component: ProfileEditComponent, canActivate: [authGuard]},
     {path: '**', component: ErrorComponent},
 ];
 

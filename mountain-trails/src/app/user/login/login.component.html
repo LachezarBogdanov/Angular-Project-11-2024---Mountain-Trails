@@ -1,5 +1,5 @@
 <main class="login-content">
-    <h1>Login to Your Account</h1>
+    <h1>Log in to Your Account</h1>
     <form class="login-form" #loginForm="ngForm" (ngSubmit)="authLogin()">
       <div class="form-group">
         <label for="email">Email</label>
@@ -25,7 +25,7 @@
           <div class="errorMsg"> Password is required!</div>
         }
       }
-      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Login</button>
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Log in</button>
     </form>
     <p class="register-link">Don't have an account? <a routerLink="/register">Register here</a></p>
   </main>

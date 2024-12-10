@@ -3,11 +3,12 @@ import { Trail } from '../../types';
 import { LoaderComponent } from "../shared/loader/loader.component";
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [RouterLink, LoaderComponent],
+  imports: [RouterLink, LoaderComponent, CurrencyPipe],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.css'
 })

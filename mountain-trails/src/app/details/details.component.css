@@ -100,6 +100,11 @@ button {
   color: white;
 }
 
+.like-btn {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
 .delete-btn {
   background-color: #f44336; /* Red */
   color: white;

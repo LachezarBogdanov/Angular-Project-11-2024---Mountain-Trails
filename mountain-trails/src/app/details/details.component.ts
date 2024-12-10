@@ -14,8 +14,10 @@ import { catchError, forkJoin, of, tap} from 'rxjs';
 })
 export class DetailsComponent implements OnInit {
   trail = {} as Trail;
-  userId = '';
-  guideName = '';
+  userId: string = '';
+  guideName: string = '';
+  trailLikesLength: number = 0;
+  hasLiked: boolean = false;
   isOwner: boolean = false;
   guide: Guide | null = null;
 
@@ -47,6 +49,15 @@ export class DetailsComponent implements OnInit {
           this.isOwner = false; 
         }
 
+        if(trail.likes.length > 0) {
+          this.trailLikesLength = trail.likes.length;
+          const isUserLiked = trail.likes.some(id => id == this.userId);
+
+          if(isUserLiked) {
+            this.hasLiked = isUserLiked;
+          }
+        }
+
         this.getOneGuide(trail.guide)
       },
       error: (err) => {
@@ -60,14 +71,8 @@ export class DetailsComponent implements OnInit {
     this.apiService.getOneGuide(guideName).subscribe({
       next: (data) => {
         if (Array.isArray(data) && data.length > 0) {
-          this.guide = data[0]; // Get the first object from the array
-        } else {
-          console.error('No guides found or data is not an array');
+          this.guide = data[0];
         }
-        console.log(data); // Check the data structure
-      },
-      error: (err) => {
-        console.log(err);
       }
     })
   }
@@ -76,5 +81,21 @@ export class DetailsComponent implements OnInit {
     this.apiService.deleteTrail(trailId).subscribe(() => {
       this.router.navigate(['/catalog']);
     });
+  }
+
+  likeHandler(trailId: string) {
+    this.apiService.likeTrail(trailId, this.userId).subscribe({
+      next: () => {
+        this.apiService.getOneTrail(this.trail._id).subscribe({
+          next: (data) => {
+            console.log(data);
+            
+            this.trail = data;
+            this.trailLikesLength = data.likes.length;
+            this.hasLiked = data.likes.some(id => id === this.userId);
+          }
+        })
+      }
+    }) 
   }
 }

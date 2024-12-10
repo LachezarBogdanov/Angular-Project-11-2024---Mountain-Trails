@@ -19,18 +19,28 @@
       <div class="guide-card">
         <img [src]="guide?.img" alt="Guide">
         <h3>Mountain Guide</h3>
-        <p><strong>Name:</strong>{{guide?.name}}</p>
-        <p><strong>Nation:</strong>{{guide?.nation}}</p>
-        <p><strong>Experience:</strong>{{guide?.experience}} years</p>
+        <p><strong>Name:</strong> {{guide?.name}}</p>
+        <p><strong>Nation:</strong> {{guide?.nation}}</p>
+        <p><strong>Experience:</strong> {{guide?.experience}} years</p>
       </div>
     </div>
+
+    <div class="button-container">
+      <p><strong>Likes:</strong> {{trailLikesLength}}</p>
+      @if(userId !== '') {
     @if(isOwner) {
     <!-- Edit and Delete Buttons -->
-    <div class="button-container">
       <button class="edit-btn" routerLink="/edit/{{trail._id}}">Edit</button>
       <button class="delete-btn" (click)="deleteHandler(trail._id)">Delete</button>
-    </div>
+    } @else {
+      @if(!hasLiked) {
+        <button class="like-btn" (click)="likeHandler(trail._id)">Like</button>
+      } @else {
+        <p>You are already liked this trail!</p>
+      }
+    }
   }
+  </div>
 </section>
   <!-- More Info Section -->
   <section class="more-info">

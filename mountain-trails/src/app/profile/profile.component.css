@@ -11,6 +11,15 @@
     flex-wrap: wrap; 
     flex-direction: row; 
   }
+
+  .edit-profile-btn {
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 5px;
+  }
   
   
   .user-info-card {
@@ -73,13 +82,26 @@
     text-align: center;
   }
   
+  /* Section Header */
+  .no-trails {
+    font-size: 1.2rem; 
+    color: white;
+    background-color: #2a3344; 
+    padding: 1rem; 
+    text-align: center; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto 0; 
+    width: 80%;
+    max-width: 400px; 
+  }
+  
   .trails-section {
     flex-shrink: 0; 
     width: 100%; 
     margin-top: auto; 
   }
   
-  /* Section Header */
   .trails-section h2 {
     margin-bottom: 1rem;
     color:white;
@@ -133,18 +155,6 @@
     color: #555;
   }
 
-  .no-trails {
-    font-size: 1.2rem; 
-    color: white;
-    background-color: #2a3344; 
-    padding: 1rem; 
-    text-align: center; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 2rem auto 0; 
-    width: 80%;
-    max-width: 400px; 
-  }
   
   @media (max-width: 1024px) {
     .trails-grid {

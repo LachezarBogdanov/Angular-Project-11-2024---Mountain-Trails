@@ -1,0 +1,43 @@
+<main>
+    <div class="form-container">
+      <h1>Edit Account</h1>
+      <form class="profile-form" #createForm="ngForm" (ngSubmit)="editProfileSubmitHandler()">
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" [(ngModel)]="user.username" ngModel minlength="5" #usernameInput="ngModel" required>
+        </div>
+
+        @if(usernameInput.touched) {
+            @if(usernameInput?.errors?.['required']) {
+                <div class="error-msg">Username is required!</div>
+            }
+
+            @if(usernameInput?.errors?.['minlength']) {
+                <div class="error-msg">Username must be at least 5 characters!</div>
+            }
+        }
+  
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="user.email" ngModel email #emailInput="ngModel" required>
+        </div>
+
+        @if(emailInput.touched) {
+            @if(emailInput?.errors?.['required']) {
+                <div class="error-msg">Email is required!</div>
+            }
+
+            @if(emailInput?.errors?.['email']) {
+                <div class="error-msg">Invalid email!</div>
+            }
+        }
+
+        
+        <!-- Submit Button -->
+        <button class="btn-submit" [disabled]="createForm.invalid">Edit Account</button>
+      </form>
+    </div>
+  </main>
+  

@@ -2,8 +2,8 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-overlay">
-      <h1>All Treks</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Unde veniam aperiam rerum quis atque, illum.</p>
+      <h1>All Trails</h1>
+      <p>Here you can see all available treks</p>
     </div>
   </section>
 
@@ -19,7 +19,7 @@
     } @else {
       @for (trail of trails; track $index) {
         <div class="card" [routerLink]="['/details', trail._id]">
-          <div class="price-badge">${{trail.price}}</div>
+          <div class="price-badge">{{trail.price | currency:'USD':'symbol':'1.0-0'}}</div>
           <img src="{{trail.img}}" alt="{{trail.name}}">
           <div class="card-content">
             <div class="meta">

@@ -18,8 +18,6 @@ export class AboutComponent implements OnInit{
   ngOnInit(): void {
     this.apiService.getGuides().subscribe((data) => {
       this.guides = data;
-      console.log(this.guides);
-      
     })
   }
 }

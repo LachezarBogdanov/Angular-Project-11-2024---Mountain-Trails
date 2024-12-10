@@ -4,7 +4,7 @@
       <div class="profile-header">
         <img
           class="profile-image"
-          src="https://via.placeholder.com/100"
+          src="person.jpeg"
           alt="User Avatar"
         />
         <h2>{{profile?.username}}</h2>
@@ -12,6 +12,7 @@
       <div class="profile-details">
         <p><strong>Email:</strong>{{profile?.email}}</p>
       </div>
+      <button class="edit-profile-btn" routerLink="/profile/edit">Edit Profile</button>
     </div>
   
     <!-- Profile Header and Additional Text in Free Space -->
@@ -25,6 +26,7 @@
       <h2>Your Created Trails</h2>
       @if(allTrails.length > 0) {
       @for (trail of allTrails; track $index) {
+        @if(trail.owner === userId) {
       <div class="trails-grid" [routerLink]="['/details', trail._id]">
         <div class="trail-card">
           <img src="{{trail.img}}" alt="Trail Image 1" />
@@ -37,9 +39,10 @@
         </div>
       </div>  
     }
-  }@else {
+    }
+  } @else {
     <p class="no-trails">No posted trails yet!</p>
-  }
+    }
     </div>
   </main>
   

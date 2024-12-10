@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { User } from '../../types';
 
 @Injectable({
@@ -25,9 +25,7 @@ export class UserService {
   }
 
   register(body: object) {
-      
     return this.http.post<User>(`/api/register`, body).pipe(tap((user) => this.user$$.next(user)));
-
   }
 
   login(body: object) {
@@ -43,5 +41,9 @@ export class UserService {
     return this.http
       .get<User>('/api/profile')
       .pipe(tap((user) => this.user$$.next(user)));
+  }
+
+  updateProfile(userId: string, data: object) {
+    return this.http.put(`/api/profile/edit/${userId}`, {data});
   }
 }

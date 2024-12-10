@@ -1,7 +1,7 @@
 /* Main Content Styles */
 main {
     flex-grow: 1;
-    padding: 40px 20px;
+    padding: 150px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ main {
     color: white;
   }
   
-  .form-container h2 {
+  .form-container h1 {
     margin-bottom: 15px;
     font-size: 24px;
     color: white;
@@ -74,4 +74,3 @@ main {
   .error-msg {
     color: red;
   }
-  

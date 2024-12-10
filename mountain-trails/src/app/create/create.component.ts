@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateService } from './create.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create',
@@ -15,7 +16,11 @@ export class CreateComponent {
 
   trail = {};
 
-  constructor(private router: Router, private createService: CreateService){}
+  constructor(
+    private router: Router,
+     private createService: CreateService,
+     private toastr: ToastrService
+    ){}
 
   createSubmitHandler() {
 
@@ -25,10 +30,12 @@ export class CreateComponent {
 
     this.trail = this.form?.value;
     
-    this.createService.createTrail(this.trail).subscribe(() => {
+    this.createService.createTrail(this.trail).subscribe({
+      next: () => {
+        this.toastr.success('Successfully created!')
         this.router.navigate(['/catalog']);
-        
-      });
+      }
+    });
    
   }
 }
