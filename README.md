@@ -22,9 +22,14 @@ Forms:
 
 * Add/Edit Trail: Forms to create or update trail information.
 
+* Use Toastr for messages and errors from the server
+
+
 How to run the program: 
 
-Open the server in external visual studio: 
+Download the zip file;
+
+Open the server folder in external visual studio: 
 npm i on it;
 npm start to connect to the server;
 
