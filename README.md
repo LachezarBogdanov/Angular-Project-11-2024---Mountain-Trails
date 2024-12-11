@@ -28,7 +28,7 @@ Open the server in external visual studio:
 npm i on it;
 npm start to connect to the server;
 
-Open the angular folder in external visual studio: 
+Open the mountain-trails folder in external visual studio: 
 npm i on it;
 cd .\mountain-trails\;
 ng serve and open the app on the link
