@@ -5,12 +5,22 @@
         <!-- Image -->
         <div class="form-group">
           <label for="img">Image URL:</label>
-          <input type="url" id="img" name="img" placeholder="Enter image URL" ngModel #imageInput="ngModel" required>
+          <input 
+          type="url"
+           id="img"
+            name="img"
+             placeholder="Enter image URL"
+              ngModel 
+              #imageInput="ngModel"
+              appImage="imageInput"
+                required>
         </div>
 
         @if(imageInput.touched) {
           @if(imageInput?.errors?.['required']) {
             <div class="error-msg">Image is required!</div>
+          } @else if (imageInput?.errors?.['checkImgUrlValidator']) {
+            <div class="error-msg">Invalid image url!</div>
           }
         }
 

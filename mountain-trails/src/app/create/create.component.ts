@@ -3,11 +3,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateService } from './create.service';
 import { ToastrService } from 'ngx-toastr';
+import { ImageDirective } from '../directives/image.directive';
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ImageDirective],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css'
 })

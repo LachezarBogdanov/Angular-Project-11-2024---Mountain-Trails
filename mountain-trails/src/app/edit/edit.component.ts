@@ -3,11 +3,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Trail } from '../../types';
+import { ImageDirective } from '../directives/image.directive';
 
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ImageDirective],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })

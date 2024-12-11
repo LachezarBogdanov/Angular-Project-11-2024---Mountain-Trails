@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
 import { UserService } from '../user/user.service';
 import { catchError, forkJoin, of, tap} from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details',
@@ -25,7 +26,8 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -78,9 +80,14 @@ export class DetailsComponent implements OnInit {
   }
 
   deleteHandler(trailId: string) {
-    this.apiService.deleteTrail(trailId).subscribe(() => {
-      this.router.navigate(['/catalog']);
-    });
+    const result = window.confirm('Are you sure you want to delete this trail!');
+
+    if(result) {
+      this.apiService.deleteTrail(trailId).subscribe(() => {
+        this.toastr.success('Successfuly deleted!')
+        this.router.navigate(['/catalog']);
+      });
+    }
   }
 
   likeHandler(trailId: string) {
