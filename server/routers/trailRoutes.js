@@ -5,12 +5,13 @@ import trailService from "../services/trailService.js";
 const trailRoutes = Router();
 
 trailRoutes.post('/', async (req, res) => {
-    const {description, difficulty, img, mileage, name, price, type} = req.body;
-    console.log({description, difficulty, img, mileage, name, price, type});
+    console.log(req.body.trailsData);
     
-
+    const {img, name, difficulty, description, guide, duration, mountain, type, price, mileage} = req.body.trailsData;
+    const userId = req.body.userId;
+    
     try {
-        await trailService.create(description, difficulty, img, mileage, name, price, type);
+        await trailService.create(img, name, difficulty, description, guide, duration, mountain, type, price, mileage, userId);
         
         res.status(201).json({});
     } catch (error) {

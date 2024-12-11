@@ -1,17 +1,24 @@
 import { Router } from "express";
 import userService from "../services/userService.js";
+import { AUTH_COOKIE_NAME } from "../constants.js";
 
 const authController = Router();
 
 authController.post('/', async (req, res) => {
-    const {username, email, password} = req.body;
-
+    
+    const {email, passGroup: {password, rePassword}, username} = req.body;
+    
     try{
-        const token = await userService.create(username, email, password);
-        
-        res.status(201).json({token});
+
+        const data = await userService.create(username, email, password);
+        res.cookie(AUTH_COOKIE_NAME, data.token, {httpOnly: true, sameSite: 'None', secure: true});
+        res.status(201).json(data.newUser);
+
     } catch(err) {
-        res.status(404).json(err);
+
+        const errorMessage = err.message || 'User already exist';
+
+        res.status(401).json({err: errorMessage});
     }
 
 });

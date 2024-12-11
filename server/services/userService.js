@@ -1,36 +1,46 @@
 import { JWT_SECRET } from "../constants.js";
 import User from "../models/User.js";
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 
 const userService = {
     async create(username, email, password) {
         const user = await User.findOne({ $or: [{email}, {username}] });
-
+        
         if(user) {
-            throw new Error('User already exists!')
+            throw new Error('user already exist')
         }
 
 
-        const newUser = User.create({username, email, password});
+        const newUser = await User.create({username, email, password});
+        
+        const token = this.generateToken(newUser);
+        const data = {newUser, token};
 
-        return this.generateToken(newUser);
+        return data;
     },
 
     async login(email, password) {
         const user = await User.findOne({email});
-
+        
         if(!user) {
             throw new Error('Invalid user or password!');
         }
 
         const isValid = await bcrypt.compare(password, user.password);
-
+        
         if(!isValid) {
             throw new Error('Invalid user or password!');
         }
+        const token = this.generateToken(user);
+        const data = {user, token};
 
-        return this.generateToken(user);
+        return data;
 
+    },
+
+    async updateUser(userId, data) {
+        return await User.findByIdAndUpdate(userId, data);
     },
 
     generateToken(user) {
