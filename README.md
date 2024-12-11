@@ -1,6 +1,6 @@
 # MountainTrails
 
-The Mountain Trails application is a web-based platform that allows users to explore, post, and manage mountain trail listings. Users can view trail details, add new trails, and edit or delete their own trails. Authentication ensures that only authorized users can perform certain actions.
+The Mountain Trails application is a platform that allows users to explore, post, and manage mountain trail listings. Users can view trail details, add new trails, and edit or delete their own trails. Authentication ensures that only authorized users can perform certain actions.
 
 * Catalog of trails.
 
@@ -16,27 +16,19 @@ The Mountain Trails application is a web-based platform that allows users to exp
 
 * Database: MongoDB
 
-* POST /api/register: Register a new user.
+Forms:
 
-* POST /api/login: Login a user.
+* Registration and Login: Forms for authentication.
 
-* POST /api/logout: Logout a user.
+* Add/Edit Trail: Forms to create or update trail information.
 
-* User Management
+How to run the program: 
 
-* GET /api/profile: Get user profile.
+Open the server in external visual studio: 
+npm i on it;
+npm start to connect to the server;
 
-* PUT /api/profile/edit/:userId: Edit user profile.
-
-Trail Management:
-
-* GET /api/trails: Get all trails.
-
-* POST /api/trails: Add a new trail.
-
-* GET /api/trails/:trailId: Get details of a specific trail.
-
-* PUT /api/trails/edit/:trailId: Edit a trail.
-
-* DELETE /api/trails/:trailId: Delete a trail.
-
+Open the angular folder in external visual studio: 
+npm i on it;
+cd .\mountain-trails\;
+ng serve and open the app on the link
