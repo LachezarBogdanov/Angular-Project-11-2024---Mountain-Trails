@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { User } from '../../types';
@@ -9,7 +9,7 @@ import { User } from '../../types';
 })
 export class UserService {
   private user$$ = new BehaviorSubject<User | null>(null);
-  private user$ = this.user$$.asObservable();
+  public user$ = this.user$$.asObservable();
 
   user: User | null = null;
   userSubscription : Subscription | null = null;
