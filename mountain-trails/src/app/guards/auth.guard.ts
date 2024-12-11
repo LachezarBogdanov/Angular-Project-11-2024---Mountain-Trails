@@ -14,6 +14,7 @@ export const authGuard: CanActivateFn = (
   if(userService.isLogged) {
     return true;
   }
+  
   toastr.error('Please login first!');
   router.navigate(['/login']);
   return false;

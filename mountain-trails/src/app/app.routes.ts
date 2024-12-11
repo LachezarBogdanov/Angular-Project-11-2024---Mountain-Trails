@@ -11,13 +11,14 @@ import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { authGuard } from './guards/auth.guard';
+import { userGuard } from './guards/user.guard';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
 
-    {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
+    {path: 'login', component: LoginComponent, canActivate: [userGuard]},
+    {path: 'register', component: RegisterComponent, canActivate: [userGuard]},
 
     {path: 'catalog', component: CatalogComponent},
     {path: 'about', component: AboutComponent},
